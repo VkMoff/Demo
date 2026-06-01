@@ -1,0 +1,69 @@
+﻿<Window x:Class="Test3.CatalogWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Test3"
+        mc:Ignorable="d"
+        Title="CatalogWindow" Height="700" Width="1000"
+        Icon="D:\Download\Демонстрационный экзамен\1 июня\312\Модуль 1\import\icon.ico">
+    <Grid>
+        <StackPanel Name="AdminPanel" Visibility="Collapsed" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5" Orientation="Horizontal">
+            <ComboBox Name="SortAmountComboBox" MinWidth="100" SelectionChanged="Sort"/>
+            <ComboBox Name="SuppliersComboBox" MinWidth="100" SelectionChanged="Sort"/>
+            <TextBox Name="SearchTextBox" MinWidth="100" TextChanged="SearchTextBox_TextChanged"/>
+        </StackPanel>
+        <Label Name="NameLabel" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5"/>
+        <ScrollViewer Margin="0,40,0,40">
+            <ItemsControl Name="ProductsControl">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Tag="{Binding Id}" BorderBrush="Black" BorderThickness="1" Background="{Binding BackgroundColor}" Margin="0,5,0,5" MouseDown="Card_MouseDown">
+                            <DockPanel LastChildFill="False">
+                                <Image Source="{Binding Image}" Height="200" MaxWidth="300"/>
+                                <StackPanel Orientation="Vertical" MaxWidth="600">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Category.Name}"/>
+                                        <TextBlock Text=" | "/>
+                                        <TextBlock Text="{Binding Name}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Описание товара: "/>
+                                        <TextBlock Text="{Binding Description}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Производитель: "/>
+                                        <TextBlock Text="{Binding Producer.Name}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Поставщик: "/>
+                                        <TextBlock Text="{Binding Supplier.Name}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Цена: "/>
+                                        <TextBlock Text="{Binding OldPrice}" TextDecorations="Strikethrough" Foreground="Red"/>
+                                        <TextBlock Text=" "/>
+                                        <TextBlock Text="{Binding DiscountPrice}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Единица измерения: "/>
+                                        <TextBlock Text="{Binding Measurement}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Количество на складе: "/>
+                                        <TextBlock Text="{Binding Amount}"/>
+                                    </StackPanel>
+                                </StackPanel>
+                                <StackPanel DockPanel.Dock="Right" Margin="15" Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Discount}"/>
+                                    <TextBlock Text="%"/>
+                                </StackPanel>
+                            </DockPanel>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+        <Button Name="ToAuthButton" Content="На главную" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10" Click="ToAuthButton_Click"/>
+    </Grid>
+</Window>
