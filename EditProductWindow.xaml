@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Test3"
         mc:Ignorable="d"
-        Title="Продукт" Height="589" Width="800"
+        Title="Продукт" Height="734" Width="800"
         Icon="D:\Download\Демонстрационный экзамен\1 июня\312\Модуль 1\import\icon.ico">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="5" MinWidth="200">
@@ -29,6 +29,11 @@
             <TextBox Text="{Binding Amount}" Name="AmountTextBox"/>
             <Label Content="Описание"/>
             <TextBox Text="{Binding Description}" Name="DescriptionTextBox" TextWrapping="Wrap" Height="100"/>
+            <Label Content="Изображение"/>
+            <StackPanel Orientation="Horizontal">
+                <Image Name="ProductImage" Width="150" Height="100" Stretch="Uniform" Margin="5"/>
+                <Button VerticalAlignment="Bottom" Content="Выбрать файл" Click="SelectImageButton_Click" Margin="5"/>
+            </StackPanel>
             <Button Content="Отменить" Margin="0,5,0,5" Click="CancelButton_Click"/>
             <Button Content="Сохранить" Margin="0,5,0,5" Click="SaveButton_Click"/>
         </StackPanel>

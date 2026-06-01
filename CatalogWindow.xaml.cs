@@ -140,5 +140,10 @@ namespace Test3
         {
             Sort();
         }
+        private void AddProductButton_Click(object sender, RoutedEventArgs e)
+        {
+            new EditProductWindow(0).Show(); 
+        }
+
     }
 }

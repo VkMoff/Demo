@@ -12,6 +12,7 @@
             <ComboBox Name="SortAmountComboBox" MinWidth="100" SelectionChanged="Sort"/>
             <ComboBox Name="SuppliersComboBox" MinWidth="100" SelectionChanged="Sort"/>
             <TextBox Name="SearchTextBox" MinWidth="100" TextChanged="SearchTextBox_TextChanged"/>
+            <Button Content="Добавить товар" Margin="10,0,0,0" Click="AddProductButton_Click"/>
         </StackPanel>
         <Label Name="NameLabel" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5"/>
         <ScrollViewer Margin="0,40,0,40">
